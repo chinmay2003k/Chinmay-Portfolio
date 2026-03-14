@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Chinmay Khairnar | Portfolio</title>
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Poppins:wght@400;600&family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: #0d0d0d;
+      color: #fff;
+      overflow-x: hidden;
+    }
+    h2 {
+      font-size: 2.5em;
+      background: linear-gradient(90deg, #ffcc00, #ff6699);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 20px;
+      font-family: 'Montserrat', sans-serif;
+    }
+    nav {
+      position: sticky;
+      top: 0;
+      background: #000;
+      padding: 15px;
+      z-index: 1000;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      margin: 0;
+      padding: 0;
+    }
+    nav ul li a {
+      color: #ffcc00;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+    nav ul li a:hover {
+      color: #ff6699;
+      transform: scale(1.2);
+    }
+    #hero {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: #000;
+      position: relative;
+    }
+    #hero h1 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 4em;
+      color: #ff6699;
+      animation: glow 2s infinite alternate;
+      letter-spacing: 2px;
+    }
+    #hero h2 {
+      font-size: 1.5em;
+      color: #fff;
+      margin-top: 10px;
+    }
+    .btn {
+      margin-top: 20px;
+      padding: 10px 20px;
+      background: linear-gradient(90deg, #ffcc00, #ff6699);
+      border: none;
+      border-radius: 8px;
+      color: #000;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+      animation: pulse 2s infinite;
+    }
+    .btn:hover {
+      transform: scale(1.1);
+    }
+    @keyframes pulse {
+      0% { box-shadow: 0 0 10px #ffcc00; }
+      50% { box-shadow: 0 0 20px #ff6699; }
+      100% { box-shadow: 0 0 10px #ffcc00; }
+    }
+    .card {
+      background: #1a1a1a;
+      margin: 20px auto;
+      padding: 30px;
+      border-radius: 15px;
+      width: 70%;
+      box-shadow: 0 0 15px #ff6699;
+      transition: transform 0.3s;
+    }
+    .card:hover {
+      transform: translateY(-10px) rotateX(2deg);
+      box-shadow: 0 0 25px #ffcc00;
+    }
+    .skill-bar {
+      margin: 15px 0;
+      text-align: left;
+    }
+    .skill-bar span {
+      display: block;
+      margin-bottom: 5px;
+    }
+    .progress {
+      background: #333;
+      border-radius: 10px;
+      overflow: hidden;
+      position: relative;
+    }
+    .progress div {
+      height: 15px;
+      background: linear-gradient(90deg, #ff6699, #ffcc00);
+      width: 0;
+      animation: loadSkill 3s forwards;
+    }
+    @keyframes loadSkill {
+      from { width: 0; }
+      to { width: var(--skill-level); }
+    }
+    .project-card {
+      perspective: 1000px;
+      width: 300px;
+      margin: 20px auto;
+    }
+    .project-inner {
+      position: relative;
+      width: 100%;
+      height: 200px;
+      transition: transform 0.8s;
+      transform-style: preserve-3d;
+    }
+    .project-card:hover .project-inner {
+      transform: rotateY(180deg);
+    }
+    .project-front, .project-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      border-radius: 10px;
+      padding: 20px;
+      background: #1a1a1a;
+      box-shadow: 0 0 15px #ffcc00;
+      font-family: 'Orbitron', sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    .project-back {
+      transform: rotateY(180deg);
+      background: #000;
+      font-family: 'Poppins', sans-serif;
+    }
+    .project-back a {
+      color: #ff6699;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .contact-icons a {
+      margin: 0 15px;
+      font-size: 2em;
+      color: #ffcc00;
+      transition: 0.3s;
+    }
+    .contact-icons a:hover {
+      color: #ff6699;
+      transform: scale(1.2);
+      text-shadow: 0 0 15px #ff6699;
+    }
+    footer {
+      text-align:center;
+      padding:20px;
+      background:#000;
+      color:#ffcc00;
+    }
+    @keyframes glow {
+      from { text-shadow: 0 0 10px #ff6699; }
+      to { text-shadow: 0 0 30px #ffcc00, 0 0 60px #ff6699; }
+    }
+    #hero::before {
+      content: "💻 ⚙️ 🐳 ☁️";
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      font-size: 2em;
+      opacity: 0.2;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <section id="hero">
+    <h1>Chinmay Khairnar</h1>
+    <h2>DevOps Enthusiast | Cloud & Automation</h2>
+    <!-- Resume direct download -->
+    <a href="Chinmay_Khairnar_DevOps_Resume.pdf" download class="btn">Download Resume</a>
+  </section>
+
+  <section id="about" class="card" data-aos="fade-up">
+    <h2>About Me</h2>
+    <p>Recent Engineering graduate with hands-on Cloud & DevOps experience (AWS, Docker, CI/CD, Linux). Skilled in automation, deployment workflows, and infrastructure management.</p>
+  </section>
+
+  <section id="skills" class="card" data-aos="fade-up">
+    <h2>Technical Skills</h2>
+    <div class="skill-bar"><span>Linux Administration</span><div class="progress"><div style="--skill-level:90%"></div></div></div>
+    <div class="skill-bar"><span>Docker</span><div class="progress"><div style="--skill-level:85%"></div></div></div>
+    <div class="skill-bar"><span>Kubernetes</span><div class="progress"><div style="--skill-level:70%"></div></div></div>
+    <div class="skill-bar"><span>AWS</span><div class="progress"><div style="--skill-level:80%"></div></div></div>
+    <div class="skill-bar"><span>CI/CD</span><div class="progress"><div style="--skill-level:75%"></div></div></div>
+  </section>
+
+  <section id="experience" class="card" data-aos="fade-up">
+    <h2>Internship Experience</h2>
+        <h3>Cloud & DevOps Intern - Skillected, Pune</h3>
+    <p>Nov 2025 - Present</p>
+    <ul>
+      <li>Hands-on Linux Administration, Docker, AWS EC2, S3, IAM</li>
+      <li>Built and deployed containerized applications</li>
+      <li>Implemented CI/CD pipelines with GitHub Actions</li>
+      <li>Provisioned infrastructure using Terraform</li>
+    </ul>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects" class="card" data-aos="fade-up">
+    <h2>Projects</h2>
+    <div class="project-card">
+      <div class="project-inner">
+        <div class="project-front">Linux Server Monitoring</div>
+        <div class="project-back">
+          <p>Bash + Cron Jobs | Alerts</p>
+          <a href="https://github.com/chinmaykhairnar/linux-monitoring" target="_blank">View on GitHub</a>
+        </div>
+      </div>
+    </div>
+    <div class="project-card">
+      <div class="project-inner">
+        <div class="project-front">Dockerized Nginx Deployment</div>
+        <div class="project-back">
+          <p>Docker + Nginx | Containerization</p>
+          <a href="https://github.com/chinmaykhairnar/docker-nginx" target="_blank">View on GitHub</a>
+        </div>
+      </div>
+    </div>
+    <div class="project-card">
+      <div class="project-inner">
+        <div class="project-front">CI/CD Workflow</div>
+        <div class="project-back">
+          <p>GitHub Actions | Automation</p>
+          <a href="https://github.com/chinmaykhairnar/ci-cd-workflow" target="_blank">View on GitHub</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Education Section -->
+  <section id="education" class="card" data-aos="fade-up">
+    <h2>Education</h2>
+    <ul>
+      <li>Bachelor of Engineering - Electronics & Telecommunication (7.64 CGPA)</li>
+      <li>Diploma in Computer Engineering (69%)</li>
+    </ul>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="card" data-aos="fade-up">
+    <h2>Contact</h2>
+    <p>Email: <a href="mailto:chinmaykhairnar182@gmail.com" style="color:#ffcc00;">chinmaykhairnar182@gmail.com</a></p>
+    <p>Phone: 9075728024</p>
+    <div class="contact-icons">
+      <a href="https://www.linkedin.com/in/chinmaykhairnar" target="_blank"><i class="fab fa-linkedin"></i></a>
+      <a href="https://github.com/chinmaykhairnar" target="_blank"><i class="fab fa-github"></i></a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>Made with Docker 🐳 & Nginx ⚙️</p>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script>
+    // Smooth scroll
+    document.querySelectorAll('nav ul li a').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
+    });
+
+    // AOS init
+    AOS.init({
+      duration: 1000,
+      once: true
+    });
+
+    // GSAP animations
+    gsap.from("#hero h1", {duration: 1.5, y:-50, opacity:0, ease:"bounce"});
+    gsap.from("#hero h2", {duration: 1.5, y:50, opacity:0, delay:0.5});
+    gsap.from("nav ul li", {duration:1, opacity:0, stagger:0.2, delay:1});
+  </script>
+</body>
+</html>
+   
